@@ -13,7 +13,8 @@
       "WebFetch(domain:blog.swmansion.com)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:blog.langchain.com)"
+      "WebFetch(domain:blog.langchain.com)",
+      "Bash(bash .specify/scripts/bash/check-prerequisites.sh --json)"
     ]
   }
 }
