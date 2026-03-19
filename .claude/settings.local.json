@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash .specify/scripts/bash/create-new-feature.sh \"Build an Agentic Research Assistant that accepts a natural-language research question, uses an LLM-powered reasoning loop to autonomously decide which tools to call \\(Web Search via Tavily, Knowledge Base via FAISS, Synthesis\\), and returns a structured response with cited answer, sources, confidence score, and decision trace.\" --json --short-name \"core-research-agent\")"
+    ]
+  }
+}
