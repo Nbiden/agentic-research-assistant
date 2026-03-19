@@ -14,7 +14,22 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:blog.langchain.com)",
-      "Bash(bash .specify/scripts/bash/check-prerequisites.sh --json)"
+      "Bash(bash .specify/scripts/bash/check-prerequisites.sh --json)",
+      "Bash(bash .specify/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks)",
+      "Bash(mkdir -p src/agent src/tools src/models src/api src/cli)",
+      "Bash(mkdir -p tests/unit/test_agent tests/unit/test_tools tests/unit/test_models tests/integration tests/contract)",
+      "Bash(touch src/__init__.py src/agent/__init__.py src/tools/__init__.py src/models/__init__.py src/api/__init__.py src/cli/__init__.py)",
+      "Bash(touch tests/__init__.py tests/unit/__init__.py tests/unit/test_agent/__init__.py tests/unit/test_tools/__init__.py tests/unit/test_models/__init__.py tests/integration/__init__.py tests/contract/__init__.py)",
+      "Bash(python -m ruff check src/ tests/ --select E,W,F,I,UP,B --ignore B008)",
+      "Bash(python -m ruff check src/ tests/ --select E,W,F,I,UP,B --ignore B008 --fix)",
+      "Bash(python -m ruff check src/ tests/)",
+      "Bash(python -m ruff format .)",
+      "Bash(python -m pytest tests/unit/ tests/contract/ -x -q)",
+      "Bash(poetry run:*)",
+      "Bash(poetry install:*)",
+      "Bash(poetry show:*)",
+      "Bash(poetry add:*)",
+      "Bash(cd:*)"
     ]
   }
 }
