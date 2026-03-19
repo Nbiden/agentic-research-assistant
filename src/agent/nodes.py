@@ -11,6 +11,7 @@ AgentState.nodes_visited for the decision trace.
 
 from __future__ import annotations
 
+import json
 import time
 from datetime import UTC, datetime
 
@@ -130,10 +131,16 @@ async def synthesize_node(state: AgentState) -> dict:
     kb_results: list[ToolResult] = list(state.get("kb_results", []))
 
     # Extract ToolMessage results from messages if web/kb results not pre-populated.
+    # LangGraph's ToolNode serialises list results as a JSON string in msg.content.
     if not web_results and not kb_results:
         for msg in state.get("messages", []):
             if isinstance(msg, ToolMessage):
                 content = msg.content
+                if isinstance(content, str):
+                    try:
+                        content = json.loads(content)
+                    except (json.JSONDecodeError, ValueError):
+                        content = []
                 if isinstance(content, list):
                     for item in content:
                         if isinstance(item, dict) and "source_type" in item:
